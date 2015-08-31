@@ -1,8 +1,8 @@
 az-button {
    position: relative;
    border-radius: 3px;
+   display: inline-block;
    overflow: hidden;
-   display: block;
    width: intrinsic;
    width: -moz-max-content;
    width: -webkit-max-content;
@@ -10,15 +10,15 @@ az-button {
    height: -moz-max-content;
    height: -webkit-max-content;
    -webkit-transition: all 0.5s linear;
- -o-transition: all 0.5s linear;
- -moz-transition: all 0.5s linear;
- -ms-transition: all 0.5s linear;
- -kthtml-transition: all 0.5s linear;
- transition: all 0.5s linear;
+   -o-transition: all 0.5s linear;
+   -moz-transition: all 0.5s linear;
+   -ms-transition: all 0.5s linear;
+   -kthtml-transition: all 0.5s linear;
+   transition: all 0.5s linear;
 }
 
 az-button:hover {
-   opacity: 0.8;
+   
 }
 
 az-button.shadow-trigger {
@@ -46,6 +46,7 @@ az-button > .this-button {
    border-radius: 3px;
    color: white;
    cursor: pointer;
+   background-color: unset;
 }
 
 az-button > .this-button:focus {

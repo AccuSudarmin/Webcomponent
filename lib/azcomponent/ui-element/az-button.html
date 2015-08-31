@@ -33,7 +33,18 @@
 
       button.style.width = mainWidth;
       button.style.height = mainHeight;
-      button.style.backgroundColor = mainColor;
+      main.style.backgroundColor = mainColor;
+
+      var rgbSplit = main.style.backgroundColor.split(/\)/);
+      var hoverColor = "rgba" + rgbSplit[0].substring(3) + ",0.7)";
+
+      button.addEventListener("mouseover", function() {
+         main.style.backgroundColor = hoverColor;
+      });
+
+      button.addEventListener("mouseout", function() {
+         main.style.backgroundColor = mainColor;
+      });
 
       button.addEventListener("click", function(){
          var middleOffset = (parseInt(mainWidth) > parseInt(mainHeight)) ? mainWidth : mainHeight;
