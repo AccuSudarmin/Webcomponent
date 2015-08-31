@@ -1,0 +1,104 @@
+az-button {
+   position: relative;
+   border-radius: 3px;
+   overflow: hidden;
+   display: block;
+   width: intrinsic;
+   width: -moz-max-content;
+   width: -webkit-max-content;
+   height: intrinsic;
+   height: -moz-max-content;
+   height: -webkit-max-content;
+   -webkit-transition: all 0.5s linear;
+ -o-transition: all 0.5s linear;
+ -moz-transition: all 0.5s linear;
+ -ms-transition: all 0.5s linear;
+ -kthtml-transition: all 0.5s linear;
+ transition: all 0.5s linear;
+}
+
+az-button:hover {
+   opacity: 0.8;
+}
+
+az-button.shadow-trigger {
+   -moz-box-shadow:    0px 0px 10px 3px #D8D5D5;
+   -webkit-box-shadow: 0px 0px 10px 3px #D8D5D5;
+   box-shadow:         0px 0px 10px 3px #D8D5D5;
+}
+
+az-button > .button-effect {
+   position: absolute;
+   background-color: white;
+   margin: auto;
+   display: none;
+}
+
+az-button > .trigger {
+   display: block;
+   animation: sizer 0.5s;
+}
+
+az-button > .this-button {
+   /*position: absolute;*/
+   border: 0;
+   /*background-color: #8484E0;*/
+   border-radius: 3px;
+   color: white;
+   cursor: pointer;
+}
+
+az-button > .this-button:focus {
+   outline: 0;
+}
+
+@-webkit-keyframes sizer {
+   0% {
+      border-radius: 100%;
+      opacity: 0;
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      transform: scale(0);
+   }
+   50% {
+      opacity: 0.3;
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+   }
+   100% {
+      opacity: 0;
+      left: 0;
+      top: 0;
+   }
+}
+
+/* Standard syntax */
+@keyframes sizer {
+   0% {
+      border-radius: 100%;
+      opacity: 0;
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      transform: scale(0);
+   }
+   50% {
+      opacity: 0.3;
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+   }
+   100% {
+      opacity: 0;
+      left: 0;
+      top: 0;
+   }
+}

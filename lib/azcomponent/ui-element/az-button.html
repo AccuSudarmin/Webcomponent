@@ -1,0 +1,62 @@
+<template id="button-template">
+   <input type="submit" class="this-button">
+   <div class="button-effect"> </div>
+</template>
+
+<script>
+ (function() {
+   var importDoc = document._currentScript.ownerDocument; // importee
+
+   // az-button js
+   var azbutton = Object.create(HTMLElement.prototype);
+
+   azbutton.createdCallback = function () {
+      var template = importDoc.querySelector("template#button-template");
+      var main = this;
+
+      // import template into
+      var clone = importDoc.importNode(template.content, true);
+
+      var button = clone.querySelector('input')
+         , effect = clone.querySelector(".button-effect");
+
+      var mainWidth = main.getAttribute("width") || "150px"
+         , mainHeight = main.getAttribute("height") || "30px"
+         , mainColor = main.getAttribute("color") || "#8484E0";
+
+      button.value = main.innerHTML;
+      main.innerHTML = "";
+      main.classList.add("button-crop");
+      // var root = main.createShadowRoot();
+      main.style.width = mainWidth;
+      main.style.height = mainHeight;
+
+      button.style.width = mainWidth;
+      button.style.height = mainHeight;
+      button.style.backgroundColor = mainColor;
+
+      button.addEventListener("click", function(){
+         var middleOffset = (parseInt(mainWidth) > parseInt(mainHeight)) ? mainWidth : mainHeight;
+         effect.style.width = middleOffset;
+         effect.style.height = middleOffset;
+
+         effect.style.left = (event.clientX - this.getBoundingClientRect().left - parseInt(middleOffset)/2) + "px";
+         effect.style.top = (event.clientY - this.getBoundingClientRect().top - parseInt(middleOffset)/2) + "px";
+
+         effect.classList.add("trigger");
+         main.classList.add("shadow-trigger");
+
+         setTimeout(function () {
+            effect.classList.remove("trigger");
+            main.classList.remove("shadow-trigger");
+         }, 500);
+
+      });
+
+      main.appendChild(clone);
+   }
+
+   document.registerElement('az-button', {prototype: azbutton});
+   // end of js az-button
+   })();
+</script>
