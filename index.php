@@ -26,11 +26,60 @@
       </div> -->
    <az-slides>
 
+      <az-slide homepage>
+         <slide-title>
+            Server - Client Communication  <br>
+            Azrul Sudarmin
+         </slide-title>
+      </az-slide>
+
       <az-slide>
          <header>
-            Cobaki
+            Navigator getUserMedia
          </header>
          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         <p>
+            <video width="150px" autoplay> </video>
+         </p>
+
+         <p><input type="button" name="name" value="Call" id="call"></p>
+         <p><input type="button" name="name" value="Stop" id="stop"></p>
+         <script type="text/javascript">
+            navigator.getUserMedia = (
+               navigator.getUserMedia ||
+               navigator.webkitGetUserMedia ||
+               navigator.mozGetUserMedia ||
+               navigator.msGetUserMedia
+            );
+
+            var localMediaStream = null;
+
+            var errorCallback = function(e) {
+               console.log('Reeeejected!', e);
+            };
+
+            function call(){
+               navigator.getUserMedia( {video: true, audio: true} ,  function(stream) {
+                  var video = document.querySelector('video');
+                  video.src = window.URL.createObjectURL(stream);
+
+                  localMediaStream = stream;
+                  video.onloadedmetadata = function(e) {
+                     //do some stuff
+                  };
+               }, errorCallback);
+            }
+
+            document.getElementById("call").onclick = function(){
+               call();
+            }
+
+            document.getElementById("stop").onclick = function(){
+               var video = document.querySelector('video');
+               video.src = null;
+               localMediaStream.stop();
+            }
+         </script>
       </az-slide>
 
       <az-slide>

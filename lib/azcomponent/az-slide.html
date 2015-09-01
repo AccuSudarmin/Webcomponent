@@ -10,9 +10,21 @@
       var currentSlide = 1;
 
       var setSlide = function(slideNow, slideBefore){
-         allSlide[slideNow-1].style.opacity = 1;
+         if (slideBefore) {
+            allSlide[slideBefore-1].style.opacity = 0;
 
-         if (slideBefore) allSlide[slideBefore-1].style.opacity = 0;
+            setTimeout(function () {
+               allSlide[slideBefore-1].style.display = "none";
+            }, 500);
+         }
+
+         setTimeout(function () {
+            allSlide[slideNow-1].style.display = "table";
+         }, 600);
+
+         setTimeout(function () {
+            allSlide[slideNow-1].style.opacity = 1;
+         }, 700);
 
          currentSlide = slideNow;
 
@@ -33,6 +45,7 @@
             setSlide(currentSlide);
          } else {
             this.style.opacity = 0;
+            this.style.display = "none";
          }
 
       };
