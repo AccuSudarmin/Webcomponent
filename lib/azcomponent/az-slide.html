@@ -1,0 +1,65 @@
+
+   <head>
+      <link rel="stylesheet" href="./css/az-slide.css">
+   </head>
+   <body>
+<script>
+   (function() {
+      var importDoc = document._currentScript.ownerDocument; // importee
+      var allSlide = [];
+      var currentSlide = 1;
+
+      var setSlide = function(slideNow, slideBefore){
+         allSlide[slideNow-1].style.opacity = 1;
+
+         if (slideBefore) allSlide[slideBefore-1].style.opacity = 0;
+
+         currentSlide = slideNow;
+
+         location.hash = slideNow;
+      }
+
+      if (window.location.hash.substr(1)){
+         currentSlide = parseInt(window.location.hash.substr(1));
+      }
+
+      // az-button js
+      var azslide = Object.create(HTMLElement.prototype);
+
+      azslide.createdCallback = function () {
+         allSlide.push(this);
+
+         if (allSlide.length === currentSlide) {
+            setSlide(currentSlide);
+         } else {
+            this.style.opacity = 0;
+         }
+
+      };
+
+      document.registerElement('az-slide', {prototype: azslide});
+      // end of js az-button
+
+      document.body.addEventListener("keydown" , function(e){
+         // console.log(e.keyCode);
+         switch (e.keyCode) {
+            case 39:
+               if (currentSlide + 1 <= allSlide.length) {
+                  var slideBefore = currentSlide;
+                  var slideNow = currentSlide + 1;
+
+                  setSlide(slideNow, slideBefore);
+               }
+               break;
+            case 37:
+               if (currentSlide-1 >= 1) {
+                  var slideBefore = currentSlide;
+                  var slideNow = currentSlide - 1;
+
+                  setSlide(slideNow, slideBefore);
+               }
+               break;
+         }
+      });
+   })();
+</script>

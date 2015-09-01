@@ -4,21 +4,60 @@
       <meta charset="utf-8">
       <script src="./lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
       <link rel="import" href="./lib/azcomponent/az-ui.html">
+      <link rel="import" href="./lib/azcomponent/az-slide.html">
       <link href="" rel="icon" type="image/x-icon" />
       <title>Webcomponent</title>
       <style>
          html, body {
             margin: 0px;
             padding: 0px;
+            width: 100%;
+            height: 100%;
+         }
+         .relative {
+            display: block;
+            position: relative;
+            height: 540px;
+            width: 960px;
+            margin: auto;
          }
       </style>
    </head>
    <body>
       <!-- <form action="tes.html" method="get"> -->
-      <div style="margin: 10px">
+      <!-- <div style="margin: 10px">
          <p> <az-input type="text" placeholder="Username" name="username"> </az-input> </p>
          <p> <az-button name="save" width="150px" height="30px"> Save </az-button> </p>
-      </div>
+      </div> -->
+      <div class="relative">
+      <az-slide>
+         Slide 1
+      </az-slide>
+      <az-slide>
+         Slide 2
+      </az-slide>
+      <az-slide>
+         Slide 3
+      </az-slide>
+      <az-slide>
+         Slide 4
+      </az-slide>
+   </div>
    <!-- </form> -->
    </body>
+
+   <script>
+      function fungsi1(callback, data2) {
+         callback(data2);
+      }
+
+      function fungsi2(data) {
+         callback(data2);
+      }
+
+      function fungsi3(data){
+
+      }
+
+   </script>
 </html>
