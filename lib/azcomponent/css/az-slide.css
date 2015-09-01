@@ -1,22 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald);
 
 az-slides {
+   border-radius: 10px;
    display: block;
    position: relative;
    height: 100%;
    width: 80%;
    margin: auto;
    background-color: white;
-   padding: 5%;
    box-sizing: border-box;
    font-family: 'Oswald', sans-serif;
 }
 
 az-slides > az-slide {
-   /*width: 90%;
-   height: 80%;*/
+   width: 100%;
+   /*height: 80%;*/
    min-height: 100%;
    background-color: white;
+   padding: 5px 20px;
    /*display: table;*/
    /*position: absolute;*/
    -webkit-transition: all 0.5s ease;
@@ -26,6 +27,7 @@ az-slides > az-slide {
    margin: auto;
    box-sizing: border-box;
    text-align: center;
+   font-size: 25px;
 }
 
 az-slides > az-slide > slide-title {
@@ -45,13 +47,18 @@ az-slides > az-slide > header {
    /*margin: 10px auto;*/
    color: #777;
    font-size: 2em;
-
    width: intrinsic;
    width: -moz-max-content;
    width: -webkit-max-content;
    height: intrinsic;
    height: -moz-max-content;
    height: -webkit-max-content;
+}
+
+az-slides > az-slide > slide-content {
+   text-align: left;
+   display: block;
+   margin-top: 10px;
 }
 
 az-slides > az-slide .coding {

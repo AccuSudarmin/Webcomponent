@@ -37,10 +37,12 @@
          <header>
             Navigator getUserMedia
          </header>
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-         <p>
-            <video width="150px" autoplay> </video>
-         </p>
+         <slide-content>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p>
+               <video width="150px" autoplay> </video>
+            </p>
+         </slide-content>
 
          <p><input type="button" name="name" value="Call" id="call"></p>
          <p><input type="button" name="name" value="Stop" id="stop"></p>
@@ -83,23 +85,32 @@
       </az-slide>
 
       <az-slide>
-         Slide 2
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-         <div class="coding">
-            <header> JAVASCRIPT </header>
-            <p>
-               <span class="def-syntax"> Var </span> newName = <span class="string">"test"</span>;
-            </p>
-            <p>
-               <span class="def-syntax"> echo </span> <span class="string">"test"</span>;
-            </p>
-         </div>
+         <header> Slide 2 </header>
+         <slide-content>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <br>
+            <div class="coding">
+               <header> JAVASCRIPT </header>
+               <p>
+                  <span class="def-syntax"> Var </span> newName = <span class="string">"test"</span>;
+               </p>
+               <p>
+                  <span class="def-syntax"> console.log </span> (newName);
+               </p>
+            </div>
+         </slide-content>
       </az-slide>
 
       <az-slide>
-         Slide 3
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         <header> Lorem Ipsum </header>
+         <slide-content>
+            <ul type="square">
+               <li>One</li>
+               <li>Two</li>
+               <li>Three</li>
+               <li>Four</li>
+            </ul>
+         </slide-content>
       </az-slide>
 
       <az-slide>
