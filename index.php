@@ -13,13 +13,8 @@
             padding: 0px;
             width: 100%;
             height: 100%;
-         }
-         .relative {
-            display: block;
-            position: relative;
-            height: 540px;
-            width: 960px;
-            margin: auto;
+            background-color: black;
+            font-family: Helvetica, Arial, sans-serif;
          }
       </style>
    </head>
@@ -29,20 +24,31 @@
          <p> <az-input type="text" placeholder="Username" name="username"> </az-input> </p>
          <p> <az-button name="save" width="150px" height="30px"> Save </az-button> </p>
       </div> -->
-      <div class="relative">
+   <az-slides>
+
       <az-slide>
-         Slide 1
+         <header>
+            Cobaki
+         </header>
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </az-slide>
+
       <az-slide>
          Slide 2
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </az-slide>
+
       <az-slide>
          Slide 3
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </az-slide>
+
       <az-slide>
          Slide 4
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </az-slide>
-   </div>
+
+   </az-slides>
    <!-- </form> -->
    </body>
 
