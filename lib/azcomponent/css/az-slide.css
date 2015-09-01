@@ -7,7 +7,7 @@ az-slides {
    background-color: white;
 }
 
-az-slide {
+az-slides > az-slide {
    width: 100%;
    height: 100%;
    background-color: white;
@@ -20,7 +20,7 @@ az-slide {
    margin: auto;
 }
 
-az-slide > header {
+az-slides > az-slide > header {
    display: block;
    margin: 10px auto;
    color: #777;
@@ -32,4 +32,34 @@ az-slide > header {
    height: intrinsic;
    height: -moz-max-content;
    height: -webkit-max-content;
+}
+
+az-slides > az-slide .coding {
+   background-color: #bebebe;
+   color: black;
+   padding: 5px;
+   padding-top: 40px;
+   display: inline-block;
+   position: relative;
+}
+
+az-slides > az-slide .coding header {
+   position: absolute;
+   right: 0;
+   top: 0;
+   padding: 5px;
+   background-color: #636363;
+   color: white;
+   width: intrinsic;
+   width: -moz-max-content;
+   width: -webkit-max-content;
+   line-height: 30px;
+}
+
+az-slides > az-slide .coding span.def-syntax {
+   color: #150A9E;
+}
+
+az-slides > az-slide .coding span.string {
+   color: #5F8E5F;
 }
