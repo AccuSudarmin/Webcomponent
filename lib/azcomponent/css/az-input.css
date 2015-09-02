@@ -16,6 +16,10 @@
       -ms-transition: all 0.3s ease;
    }
 
+   az-input input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px white unset;
+   }
+
    az-input > label.label-trigger {
       /*color: #8484E0 !important;*/
       font-size: 0.8em !important;

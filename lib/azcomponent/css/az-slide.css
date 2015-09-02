@@ -15,7 +15,7 @@ az-slides {
 
 az-slides > az-slide {
    width: 100%;
-   min-height: 100%;
+   height: 100%;
    background-color: white;
    padding: 5px 20px;
    border-radius: 10px;
@@ -24,7 +24,9 @@ az-slides > az-slide {
    -o-transition: all 0.5s ease;
    -ms-transition: all 0.5s ease;
    margin: auto;
+   position: absolute;
    box-sizing: border-box;
+   -moz-box-sizing: border-box;
    text-align: center;
    font-size: 30pt;
 }

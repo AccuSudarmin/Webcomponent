@@ -15,16 +15,14 @@
 
             setTimeout(function () {
                allSlide[slideBefore-1].style.display = "none";
-            }, 500);
+            }, 1000);
          }
 
-         setTimeout(function () {
-            allSlide[slideNow-1].style.display = "table";
-         }, 600);
+         allSlide[slideNow-1].style.display = "table";
 
          setTimeout(function () {
             allSlide[slideNow-1].style.opacity = 1;
-         }, 700);
+         }, 100);
 
          currentSlide = slideNow;
 
@@ -39,7 +37,12 @@
       var azslide = Object.create(HTMLElement.prototype);
 
       azslide.createdCallback = function () {
+         var mainBackColor = this.getAttribute("color") || "white";
+         var contentColor = this.getAttribute("contentColor") || "black";
          allSlide.push(this);
+
+         this.style.backgroundColor = mainBackColor;
+         this.style.color = contentColor;
 
          if (allSlide.length === currentSlide) {
             setSlide(currentSlide);
