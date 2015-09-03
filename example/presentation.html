@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <script src="http://localhost/webcomponent/lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
+      <link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ui.html">
+      <link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-slide.html">
+      <title>Webcomponent</title>
+      <style>
+         html, body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            font-family: Helvetica, Arial, sans-serif;
+         }
+      </style>
+   </head>
+   <body>
+   <az-slides>
+
+      <az-slide color="#EC312E" contentColor="white">
+         <slide-title>
+            Server - Client Communication <br>
+            Websocket
+         </slide-title>
+      </az-slide>
+
+      <az-slide color="#EC312E" contentColor="white">
+         <header>
+            What is Websocket?
+         </header>
+         <slide-content>
+            <ul type="square">
+               <li>
+                  Normally servers can only send data to clients after a client makes request.
+               </li>
+               <li>
+                  WebSocket is a protocol which allows clients to connect to servers and keep
+                  the connection alive so that servers can send back data anytime.
+               </li>
+            </ul>
+         </slide-content>
+      </az-slide>
+
+      <az-slide color="#EC312E" contentColor="white">
+         <header> Websocket requirement </header>
+         <slide-content>
+            <ul type="square">
+               <li>Nodejs: Javascript Webserver</li>
+               <li>Express: Designed for building single-page, multi-page, and hybrid web application.</li>
+               <li>Socket.io: Bi-directional communication between web clients and server.</li>
+            </ul>
+         </slide-content>
+      </az-slide>
+
+      <az-slide color="#2F628C" contentColor="white">
+         <slide-title>
+            Donwloading nodejs <br>
+            <a href="https://nodejs.org/">http://nodejs.org</a>
+         </slide-title>
+      </az-slide>
+
+      <az-slide>
+         <header> Nodejs </header>
+         <slide-content>
+            <p> Simple web server written in Nodejs, responds with "Hello World" for every request</p>
+            <div class="coding">
+               <header> JAVASCRIPT </header>
+               <span class="def-syntax"> var </span> http = <span class="def-syntax">require</span>(<span class="string">'http'</span>);
+
+               <p>
+                  http.<span class="def-syntax">createServer</span>(<span class="def-syntax">function</span> (req, res) { <br>
+
+                     &nbsp; &nbsp;
+   	               res.<span class="def-syntax">writeHead</span>(<span class="integer">200</span>, {<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>}); <br>
+
+                     &nbsp; &nbsp;
+   	               res.<span class="def-syntax">send</span>(<span class="string">'Hello World\n'</span>); <br>
+
+                  }).<span class="def-syntax">listen</span>(<span class="integer">1337</span>, <span class="string">'127.0.0.1'</span>);
+               </p>
+
+               <span class="def-syntax">console.log</span>(<span class="string">'Server running at http://127.0.0.1:1337/'</span>);
+            </div>
+         </slide-content>
+      </az-slide>
+
+      <az-slide>
+         <header> Navigatour User Media </header>
+         <slide-content>
+            <p> Simple web server written in Nodejs, responds with "Hello World" for every request</p>
+            <p> <video autoplay height="250px"></video> <br>
+               <input type="button" name="name" value="Call" id="call"><input type="button" name="name" value="Stop" id="stop"></p>
+            <script type="text/javascript">
+               navigator.getUserMedia = (
+                  navigator.getUserMedia ||
+                  navigator.webkitGetUserMedia ||
+                  navigator.mozGetUserMedia ||
+                  navigator.msGetUserMedia
+               );
+
+               var localMediaStream = null;
+
+               var errorCallback = function(e) {
+                  console.log('Reeeejected!', e);
+               };
+
+               function call(){
+                  navigator.getUserMedia( {video: true, audio: true} ,  function(stream) {
+                     var video = document.querySelector('video');
+                     video.src = window.URL.createObjectURL(stream);
+
+                     localMediaStream = stream;
+                     video.onloadedmetadata = function(e) {
+                        //do some stuff
+                     };
+                  }, errorCallback);
+               }
+
+               document.getElementById("call").onclick = function(){
+                  call();
+               }
+
+               document.getElementById("stop").onclick = function(){
+                  var video = document.querySelector('video');
+                  video.src = null;
+                  localMediaStream.stop();
+               }
+            </script>
+         </slide-content>
+      </az-slide>
+
+   </az-slides>
+   <!-- </form> -->
+   </body>
+</html>
