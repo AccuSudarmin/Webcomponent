@@ -8,20 +8,46 @@
       var importDoc = document._currentScript.ownerDocument; // importee
       var allSlide = [];
       var currentSlide = 1;
+      var hit = false
+         hitTimeOut = null;
+      var timeOutBefore = null
+         , timeOutNow = null;
 
       var setSlide = function(slideNow, slideBefore){
-         if (slideBefore) {
-            allSlide[slideBefore-1].style.opacity = 0;
+         clearTimeout(timeOutBefore);
+         clearTimeout(timeOutNow);
 
-            setTimeout(function () {
+         var zindexNow = "2"
+            , zindexBefore = "1";
+
+         if (slideBefore) {
+
+            if (slideNow > slideBefore) {
+               var leftPositionBf = "-" + parseInt(allSlide[slideBefore-1].offsetWidth) + "px";
+            } else {
+               var leftPositionBf = parseInt(allSlide[slideBefore-1].offsetWidth) + "px";
+            }
+
+            allSlide[slideBefore-1].style.zIndex = zindexBefore;
+            timeOutBefore = setTimeout(function () {
+               allSlide[slideBefore-1].style.left = leftPositionBf;
                allSlide[slideBefore-1].style.display = "none";
-            }, 1000);
+            }, 1200);
          }
 
          allSlide[slideNow-1].style.display = "table";
+         allSlide[slideNow-1].style.zIndex = zindexNow;
 
-         setTimeout(function () {
-            allSlide[slideNow-1].style.opacity = 1;
+         if (slideNow < slideBefore) {
+            var leftPosition = "-" + parseInt(allSlide[slideNow-1].offsetWidth) + "px";
+         } else {
+            var leftPosition = parseInt(allSlide[slideNow-1].offsetWidth) + "px";
+         }
+
+         allSlide[slideNow-1].style.left = leftPosition;
+
+         timeOutNow = setTimeout(function () {
+            allSlide[slideNow-1].style.left = "0px";
          }, 100);
 
          currentSlide = slideNow;
@@ -47,7 +73,7 @@
          if (allSlide.length === currentSlide) {
             setSlide(currentSlide);
          } else {
-            this.style.opacity = 0;
+            // this.style.opacity = 0;
             this.style.display = "none";
          }
 
@@ -58,23 +84,34 @@
 
       document.body.addEventListener("keydown" , function(e){
          // console.log(e.keyCode);
-         switch (e.keyCode) {
-            case 39:
-               if (currentSlide + 1 <= allSlide.length) {
-                  var slideBefore = currentSlide;
-                  var slideNow = currentSlide + 1;
 
-                  setSlide(slideNow, slideBefore);
-               }
-               break;
-            case 37:
-               if (currentSlide-1 >= 1) {
-                  var slideBefore = currentSlide;
-                  var slideNow = currentSlide - 1;
+         if (!hit) {
+            switch (e.keyCode) {
+               case 39:
+                  if (currentSlide + 1 <= allSlide.length) {
+                     var slideBefore = currentSlide;
+                     var slideNow = currentSlide + 1;
 
-                  setSlide(slideNow, slideBefore);
-               }
-               break;
+                     setSlide(slideNow, slideBefore);
+                  }
+                  break;
+               case 37:
+                  if (currentSlide-1 >= 1) {
+                     var slideBefore = currentSlide;
+                     var slideNow = currentSlide - 1;
+
+                     setSlide(slideNow, slideBefore);
+                  }
+                  break;
+            }
+            hit = true;
+         }
+
+         if (!hitTimeOut) {
+            hitTimeOut = setTimeout(function () {
+               hit = false;
+               hitTimeOut = false;
+            }, 1200);
          }
       });
    })();
