@@ -6,6 +6,7 @@ az-chart > bar > .graph-front {
    bottom: 20px;
    text-align: center;
    box-sizing: border-box;
+   -moz-box-sizing: border-box;
    overflow: hidden;
    padding-top: 10px;
    color: white;

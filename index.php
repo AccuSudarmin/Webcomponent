@@ -20,11 +20,11 @@
    </head>
    <body>
       <!-- <form action="tes.html" method="get"> -->
-      <!-- <div style="margin: 10px">
+      <div style="margin: 10px">
          <p> <az-input type="text" placeholder="Username" name="username"> </az-input> </p>
          <p> <az-button name="save" width="150px" height="30px"> Save </az-button> </p>
-      </div> -->
-   <az-slides>
+      </div>
+   <!-- <az-slides>
 
       <az-slide homepage>
          <slide-title>
@@ -118,7 +118,7 @@
          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </az-slide>
 
-   </az-slides>
+   </az-slides> -->
    <!-- </form> -->
    </body>
 </html>
