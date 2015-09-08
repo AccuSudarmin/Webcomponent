@@ -64,9 +64,10 @@ az-slides > az-slide > slide-content {
 }
 
 az-slides > az-slide .coding {
+   text-align: left;
    font-family: 'Source Code Pro';
    background-color: #E9E9F3;
-border-left: solid 4px #BEBEBF;
+   border-left: solid 4px #BEBEBF;
    color: black;
    padding: 20px;
    padding-top: 40px;
@@ -95,4 +96,8 @@ az-slides > az-slide .coding span.def-syntax {
 
 az-slides > az-slide .coding span.string {
    color: #5F8E5F;
+}
+
+az-slides > az-slide .coding span.bracket {
+   color: #bebebe;
 }
