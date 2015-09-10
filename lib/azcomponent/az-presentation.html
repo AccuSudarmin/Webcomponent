@@ -1,6 +1,7 @@
 
    <head>
       <link rel="stylesheet" href="./css/az-presentation.css">
+      <link rel="stylesheet" href="./css/az-animation.css">
    </head>
    <body>
 <script>
@@ -13,42 +14,31 @@
       var timeOutBefore = null
          , timeOutNow = null;
 
-      var setSlide = function(slideNow, slideBefore){
-         clearTimeout(timeOutBefore);
-         clearTimeout(timeOutNow);
+      function triggerAnimation (obj){
+         console.log(obj);
+         if (obj.hasAttribute('fadein')) {
+            obj.classList.toggle('animation-fade');
+         } else if (obj.hasAttribute('slide')) {
+            obj.classList.toggle('animation-fade');
+         }
+      }
 
+      var setSlide = function(slideNow, slideBefore){
          var zindexNow = "2"
             , zindexBefore = "1";
 
          if (slideBefore) {
-
-            if (slideNow > slideBefore) {
-               var leftPositionBf = "-" + parseInt(allSlide[slideBefore-1].offsetWidth) + "px";
-            } else {
-               var leftPositionBf = parseInt(allSlide[slideBefore-1].offsetWidth) + "px";
-            }
-
             allSlide[slideBefore-1].style.zIndex = zindexBefore;
-            timeOutBefore = setTimeout(function () {
-               allSlide[slideBefore-1].style.left = leftPositionBf;
+            setTimeout(function () {
                allSlide[slideBefore-1].style.display = "none";
-            }, 1200);
+               triggerAnimation(allSlide[slideBefore-1]);
+            }, 1000);
          }
 
-         allSlide[slideNow-1].style.display = "table";
          allSlide[slideNow-1].style.zIndex = zindexNow;
+         allSlide[slideNow-1].style.display = "block";
 
-         if (slideNow < slideBefore) {
-            var leftPosition = "-" + parseInt(allSlide[slideNow-1].offsetWidth) + "px";
-         } else {
-            var leftPosition = parseInt(allSlide[slideNow-1].offsetWidth) + "px";
-         }
-
-         allSlide[slideNow-1].style.left = leftPosition;
-
-         timeOutNow = setTimeout(function () {
-            allSlide[slideNow-1].style.left = "0px";
-         }, 100);
+         triggerAnimation(allSlide[slideNow-1]);
 
          currentSlide = slideNow;
 
@@ -60,9 +50,9 @@
       }
 
       // az-button js
-      var azpresentation = Object.create(HTMLElement.prototype);
+      var azpresslide = Object.create(HTMLElement.prototype);
 
-      azpresentation.createdCallback = function () {
+      azpresslide.createdCallback = function () {
          var title = this.querySelector("slide-title");
          var header = this.querySelector("header");
          var mainBackColor = this.getAttribute("color") || "white";
@@ -91,13 +81,14 @@
 
       };
 
-      document.registerElement('az-presentation', {prototype: azpresentation});
+      document.registerElement('az-pres-slide', {prototype: azpresslide});
       // end of js az-button
 
       var azcoding = Object.create(HTMLElement.prototype);
 
       azcoding.createdCallback = function () {
          var content = this.innerHTML;
+
          var code = {};
 
          code.def = {
@@ -142,7 +133,6 @@
                arr.push("("+obj[key].name+")");
             });
 
-            console.log(arr);
             return arr.join("|");
          }
 
