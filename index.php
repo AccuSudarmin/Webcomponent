@@ -25,7 +25,7 @@
          <p> <az-button name="save" width="150px" height="30px"> Save </az-button> </p>
       </div> -->
       <az-presentation>
-         <az-pres-slide>
+         <az-pres-slide fadein>
             <header> Express JS <br> Basic Routing</header>
             <slide-content>
                <div is="az-coding" class="coding">
@@ -45,6 +45,20 @@
                   </p>
 
                </div>
+            </slide-content>
+         </az-pres-slide>
+         <az-pres-slide fadein>
+            <header> Express JS <br> Basic Routing</header>
+            <slide-content>
+
+               dicoba
+            </slide-content>
+         </az-pres-slide>
+         <az-pres-slide fadein>
+            <header> ini lagi seng</header>
+            <slide-content>
+
+               banyak
             </slide-content>
          </az-pres-slide>
       </az-presentation>
