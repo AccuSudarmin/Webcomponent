@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <script src="./lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
       <link rel="import" href="./lib/azcomponent/az-ui.html">
-      <link rel="import" href="./lib/azcomponent/az-slide.html">
+      <link rel="import" href="./lib/azcomponent/az-presentation.html">
       <link href="" rel="icon" type="image/x-icon" />
       <title>Webcomponent</title>
       <style>
@@ -20,20 +20,44 @@
    </head>
    <body>
       <!-- <form action="tes.html" method="get"> -->
-      <div style="margin: 10px">
+      <!-- <div style="margin: 10px">
          <p> <az-input type="text" placeholder="Username" name="username"> </az-input> </p>
          <p> <az-button name="save" width="150px" height="30px"> Save </az-button> </p>
-      </div>
-   <!-- <az-slides>
+      </div> -->
+      <az-presentation>
+         <az-pres-slide>
+            <header> Express JS <br> Basic Routing</header>
+            <slide-content>
+               <div is="az-coding" class="coding">
+                  <header> JAVASCRIPT </header>
+                  <p>
+                  // respond with "Hello World!" on the homepage <br>
+                  app.get('/', function ('req',s sdf sdf 'res') { <br>
+                     &nbsp;&nbsp;res.send('Hello World!'); <br>
+                  });
+                  </p>
 
-      <az-slide homepage>
+                  <p>
+                  // accept POST request on the homepage <br>
+                  app.post('/', function (req, res) { <br>
+                  	&nbsp;&nbsp;res.send('Got a POST request');<br>
+                  });
+                  </p>
+
+               </div>
+            </slide-content>
+         </az-pres-slide>
+      </az-presentation>
+   <!-- <az-presentation>
+
+      <az-pres-slide homepage>
          <slide-title>
             Server - Client Communication  <br>
             Azrul Sudarmin
          </slide-title>
-      </az-slide>
+      </az-pres-slide>
 
-      <az-slide>
+      <az-pres-slide>
          <header>
             Navigator getUserMedia
          </header>
@@ -82,9 +106,9 @@
                localMediaStream.stop();
             }
          </script>
-      </az-slide>
+      </az-pres-slide>
 
-      <az-slide>
+      <az-pres-slide>
          <header> Slide 2 </header>
          <slide-content>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -99,9 +123,9 @@
                </p>
             </div>
          </slide-content>
-      </az-slide>
+      </az-pres-slide>
 
-      <az-slide>
+      <az-pres-slide>
          <header> Lorem Ipsum </header>
          <slide-content>
             <ul type="square">
@@ -111,14 +135,14 @@
                <li>Four</li>
             </ul>
          </slide-content>
-      </az-slide>
+      </az-pres-slide>
 
-      <az-slide>
+      <az-pres-slide>
          Slide 4
          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </az-slide>
+      </az-pres-slide>
 
-   </az-slides> -->
+   </az-presentation> -->
    <!-- </form> -->
    </body>
 </html>
