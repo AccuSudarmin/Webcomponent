@@ -5,8 +5,8 @@ az-presentation {
    border-radius: 10px;
    display: block;
    position: relative;
-   height: 100%;
-   width: 80%;
+   height: 699px;
+   width: 1100px;
    margin: auto;
    background-color: white;
    box-sizing: border-box;
@@ -61,6 +61,8 @@ az-presentation > az-pres-slide > slide-content {
    text-align: left;
    display: block;
    margin-top: 10px;
+   font-size: 25pt;
+   font-weight: normal;
 }
 
 az-presentation > az-pres-slide .coding {
@@ -102,7 +104,7 @@ az-presentation > az-pres-slide .coding span.bracket {
    color: #bebebe;
 }
 
-/*all animation*/
+/*animation fade*/
 
 .animation-fade {
    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -139,4 +141,154 @@ az-presentation > az-pres-slide .coding span.bracket {
 @-o-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+/*end animation fade*/
+
+.animation-swipe-right {
+   -webkit-animation: swipe-right 1s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: swipe-right 1s; /* Firefox < 16 */
+   -ms-animation: swipe-right 1s; /* Internet Explorer */
+   -o-animation: swipe-right 1s; /* Opera < 12.1 */
+   animation: swipe-right 1s;
+}
+
+@keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+.animation-swipe-left {
+   -webkit-animation: swipe-left 1s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: swipe-left 1s; /* Firefox < 16 */
+   -ms-animation: swipe-left 1s; /* Internet Explorer */
+   -o-animation: swipe-left 1s; /* Opera < 12.1 */
+   animation: swipe-left 1s;
+}
+
+@keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+.animation-roll-up-in {
+   -webkit-animation: roll-up-in 1s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: roll-up-in 1s; /* Firefox < 16 */
+   -ms-animation: roll-up-in 1s; /* Internet Explorer */
+   -o-animation: roll-up-in 1s; /* Opera < 12.1 */
+   animation: roll-up-in 1s;
+}
+
+@keyframes roll-up-in {
+   from { top: 699px; }
+   to   { top: 0px; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes roll-up-in {
+   from { top:  699px; }
+   to   { top: 0px; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes roll-up-in {
+   from { top:  699px; }
+   to   { top: 0px; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes roll-up-in {
+   from { top:  699px; }
+   to   { top: 0px; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes roll-up-in {
+   from { top:  699px; }
+   to   { top: 0px; }
+}
+
+.animation-roll-up-out {
+   -webkit-animation: roll-up-out 1s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: roll-up-out 1s; /* Firefox < 16 */
+   -ms-animation: roll-up-out 1s; /* Internet Explorer */
+   -o-animation: roll-up-out 1s; /* Opera < 12.1 */
+   animation: roll-up-out 1s;
+}
+
+@keyframes roll-up-out {
+   from { top: 0px; }
+   to   { top: -699px; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes roll-up-out {
+   from { left:  0px; }
+   to   { top: -699px; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes roll-up-out {
+   from { left:  0px; }
+   to   { top: -699px; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes roll-up-out {
+   from { left:  0px; }
+   to   { top: -699px; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes roll-up-out {
+   from { left:  0px; }
+   to   { top: -699px; }
 }

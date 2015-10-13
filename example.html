@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+
+</head>
+<body>
+  <form method='post' id='lagi'>
+    <textarea id='test' name='test'></textarea>
+    <button>Test</button>
+    <iframe id="frame" name='test'></iframe>
+  </form>
+</body>
+<script type="text/javascript">
+var iframe_node = document.getElementById("frame");
+iframe_node.contentDocument.designMode = "on";
+
+iDoc = iframe_node.contentWindow     // sometimes glamorous naming of variable
+      || iframe_node.contentDocument;  // makes your code working :)
+
+iDoc.document.body.addEventListener('keyup', function(){
+   document.getElementById('test').value = this.innerHTML;
+});
+
+document.getElementById("lagi").addEventListener("submit", function(){
+   // console.log(this.elements.document.getElementsByName('test'));
+   for (var i = 0; i < this.elements.length; i++) {
+      console.log(this.elements[i].name, this.elements[i].value);
+   }
+   event.preventDefault();
+});
+
+</script>
+</html>

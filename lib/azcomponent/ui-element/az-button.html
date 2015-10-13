@@ -1,5 +1,5 @@
 <template id="button-template">
-   <input type="submit" class="this-button">
+   <button type="submit" class="this-button"></button>
    <div class="button-effect"> </div>
 </template>
 
@@ -17,14 +17,17 @@
       // import template into
       var clone = importDoc.importNode(template.content, true);
 
-      var button = clone.querySelector('input')
+      var button = clone.querySelector('button')
          , effect = clone.querySelector(".button-effect");
 
       var mainWidth = main.getAttribute("width") || "150px"
          , mainHeight = main.getAttribute("height") || "30px"
          , mainColor = main.getAttribute("color") || "#8484E0";
 
-      button.value = main.innerHTML;
+      button.innerHTML = main.innerHTML;
+      button.type = main.getAttribute('type') || 'submit';
+      button.name = main.getAttribute('name') || '';
+
       main.innerHTML = "";
       main.classList.add("button-crop");
       // var root = main.createShadowRoot();

@@ -2,10 +2,10 @@
 <html>
    <head>
       <meta charset="utf-8">
-      <script src="http://localhost/webcomponent/lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
+      <script src="../lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
       <link rel="import" href="../lib/azcomponent/az-ui.html">
-      <link rel="import" href="../lib/azcomponent/az-slide.html">
-      <title>Webcomponent</title>
+      <link rel="import" href="../lib/azcomponent/az-presentation.html">
+      <title>WebRTC - Azrul Sudarmin</title>
       <style>
          html, body {
             margin: 0px;
@@ -15,124 +15,394 @@
             background-color: black;
             font-family: Helvetica, Arial, sans-serif;
          }
+
+         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+         }
+
       </style>
    </head>
+
    <body>
-   <az-slides>
+      <az-presentation>
+         <az-pres-slide color="#EC312E" contentColor="white" fade>
+            <slide-title color="white">
+               WebRTC
+            </slide-title>
+         </az-pres-slide>
 
-      <az-slide color="#EC312E" contentColor="white">
-         <slide-title>
-            Server - Client Communication <br>
-            Websocket
-         </slide-title>
-      </az-slide>
+         <az-pres-slide color="#0096BB" contentColor="white" swipe>
+            <header color="white">
+               HTML5
+            </header>
+            <slide-content>
+               <center>
+                  <img src="./img/html5.png" alt="HTML5" width="900px" />
+               </center>
+            </slide-content>
+         </az-pres-slide>
 
-      <az-slide color="#EC312E" contentColor="white">
-         <header>
-            What is Websocket?
-         </header>
-         <slide-content>
-            <ul type="square">
-               <li>
-                  Normally servers can only send data to clients after a client makes request.
-               </li>
-               <li>
-                  WebSocket is a protocol which allows clients to connect to servers and keep
-                  the connection alive so that servers can send back data anytime.
-               </li>
-            </ul>
-         </slide-content>
-      </az-slide>
+         <az-pres-slide color="#7870B3" contentColor="white" swipe>
+            <header>
+               Why WebRTC?
+            </header>
+            <slide-content>
+               <ul type="square">
+                  <li> No need to install Plugins! </li>
+                  <li> Secure Channel </li>
+                  <li> Bandwidth friendly </li>
+               </ul>
+            </slide-content>
+         </az-pres-slide>
 
-      <az-slide color="#EC312E" contentColor="white">
-         <header> Websocket requirement </header>
-         <slide-content>
-            <ul type="square">
-               <li>Nodejs: Javascript Webserver</li>
-               <li>Express: Designed for building single-page, multi-page, and hybrid web application.</li>
-               <li>Socket.io: Bi-directional communication between web clients and server.</li>
-            </ul>
-         </slide-content>
-      </az-slide>
+         <az-pres-slide color="#EC312E" contentColor="white" swipe>
+            <header>
+               WebRTC Accross Platform
+            </header>
+            <slide-content>
+               <ul type="square">
+                  <li> Chrome </li>
+                  <li> Chrome for Android </li>
+                  <li> Firefox </li>
+                  <li> Opera </li>
+                  <li> Native java and Objective-C bindings </li>
+               </ul>
+            </slide-content>
+         </az-pres-slide>
 
-      <az-slide color="#2F628C" contentColor="white">
-         <slide-title>
-            Donwloading nodejs <br>
-            <a href="https://nodejs.org/">http://nodejs.org</a>
-         </slide-title>
-      </az-slide>
+         <az-pres-slide color="#EC312E" contentColor="white" swipe>
+            <header>
+               Three main Javascript API for WebRTC
+            </header>
+            <slide-content>
+               <ul type="square">
+                  <li> MediaStream (aka getUserMedia) </li>
+               </ul>
+            </slide-content>
+         </az-pres-slide>
 
-      <az-slide>
-         <header> Nodejs </header>
-         <slide-content>
-            <p> Simple web server written in Nodejs, responds with "Hello World" for every request</p>
-            <div class="coding">
-               <header> JAVASCRIPT </header>
-               <span class="def-syntax"> var </span> http = <span class="def-syntax">require</span>(<span class="string">'http'</span>);
+         <az-pres-slide color="#EC312E" contentColor="white" fade>
+            <header>
+               Three main Javascript API for WebRTC
+            </header>
+            <slide-content>
+               <ul type="square">
+                  <li> MediaStream (aka getUserMedia) </li>
+                  <li> RTCPeerConnection </li>
+               </ul>
+            </slide-content>
+         </az-pres-slide>
 
-               <p>
-                  http.<span class="def-syntax">createServer</span>(<span class="def-syntax">function</span> (req, res) { <br>
+         <az-pres-slide color="#EC312E" contentColor="white" fade>
+            <header>
+               Three main Javascript API for WebRTC
+            </header>
+            <slide-content>
+               <ul type="square">
+                  <li> MediaStream (aka getUserMedia) </li>
+                  <li> RTCPeerConnection </li>
+                  <li> RTCDataChannel </li>
+               </ul>
+            </slide-content>
+         </az-pres-slide>
 
-                     &nbsp; &nbsp;
-   	               res.<span class="def-syntax">writeHead</span>(<span class="integer">200</span>, {<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>}); <br>
+         <az-pres-slide color="#252525" contentColor="white" roll>
+            <slide-title color="white">
+               MediaStream aka getUserMedia
+            </slide-title>
+         </az-pres-slide>
 
-                     &nbsp; &nbsp;
-   	               res.<span class="def-syntax">send</span>(<span class="string">'Hello World\n'</span>); <br>
+         <az-pres-slide contentColor="black" swipe>
+            <header>
+               getUserMedia
+            </header>
+            <slide-content>
+               <center>
+                  <p> Represents a stream of audio and/or video </p>
+                  <img src="./img/getUserMedia.png" alt="getUserMedia" width="900px"/>
+               </center>
+            </slide-content>
+         </az-pres-slide>
 
-                  }).<span class="def-syntax">listen</span>(<span class="integer">1337</span>, <span class="string">'127.0.0.1'</span>);
-               </p>
+         <az-pres-slide color="#7870B3" contentColor="black" swipe>
+            <header>
+               Access Video and Audio
+            </header>
+            <slide-content>
+               <div is="az-coding" class="coding">
+                  navigator.getUserMedia(constraints, successCallback, errorCallback);
+               </div>
+               <div style="
+                  display: table;
+                  margin: 20px auto;
+                  background-color: #FFF;
+                  overflow: hidden;
+                  padding: 10px;
+                  width: 420px;
+                  box-sizing: border-box;
+               ">
+                  <video id="getusermedia" width="400px" color="black" autoplay></video> <br>
+                  <center>
+                     <az-button id="call">Call</az-button>
+                     <az-button id="stop">Stop</az-button>
+                  </center>
+               </div>
+            </slide-content>
+         </az-pres-slide>
 
-               <span class="def-syntax">console.log</span>(<span class="string">'Server running at http://127.0.0.1:1337/'</span>);
-            </div>
-         </slide-content>
-      </az-slide>
+         <az-pres-slide contentColor="black" swipe>
+            <header>
+               Access Video and Audio
+            </header>
+            <slide-content>
+               <div is="az-coding" class="coding">
+                  <header> javascript </header>
+                  &lt;video autoplay&gt;&lt;/video&gt; <br>
+                  &lt;script&gt; <br>
+                  &nbsp;&nbsp;navigator.getUserMedia = (
+                  navigator.getUserMedia || <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;navigator.webkitGetUserMedia || <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;navigator.mozGetUserMedia || <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;navigator.msGetUserMedia <br>
+                  &nbsp;&nbsp;); <br>
 
-      <az-slide>
-         <header> Navigatour User Media </header>
-         <slide-content>
-            <p> Simple web server written in Nodejs, responds with "Hello World" for every request</p>
-            <p> <video autoplay height="250px"></video> <br>
-               <input type="button" name="name" value="Call" id="call"><input type="button" name="name" value="Stop" id="stop"></p>
-            <script type="text/javascript">
-               navigator.getUserMedia = (
-                  navigator.getUserMedia ||
-                  navigator.webkitGetUserMedia ||
-                  navigator.mozGetUserMedia ||
-                  navigator.msGetUserMedia
-               );
+                  &nbsp;&nbsp;var errorCallback = function(e) { <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log('Reeeejected!', e); <br>
+                  &nbsp;&nbsp;}; <br>
 
-               var localMediaStream = null;
+                  &nbsp;&nbsp;navigator.getUserMedia( {video: true, audio: true} , <br>
+                  &nbsp;&nbsp;function(localMediaStream) { <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;var video = document.querySelector('video'); <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;video.src = window.URL.createObjectURL(localMediaStream); <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;video.onloadedmetadata = function(e) { <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//do some stuff <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;}; <br>
+                  &nbsp;&nbsp;}, errorCallback); <br>
+                  &lt;/script&gt;
+               </div>
+            </slide-content>
+         </az-pres-slide>
 
-               var errorCallback = function(e) {
-                  console.log('Reeeejected!', e);
+         <az-pres-slide  color="#EC312E" contentColor="white" swipe>
+            <header color="white">
+               3 Parameters
+            </header>
+            <slide-content>
+               <div is="az-coding" class="coding">
+                  navigator.getUserMedia(constraints, successCallback, errorCallback);
+               </div>
+
+               <ul type="square">
+                  <li>Constraints
+                     <ul>
+                        <li>an object having either one or both the properties audio and video.</li>
+                        <li>To get both video and audio you would use: { video: true, audio: true }</li>
+                     </ul>
+                  </li>
+                  <li>successCallback
+                     <ul>
+                        <li>A function that will be called if the media stream is successfully loaded.</li>
+                        <li>The function will be passed a LocalMediaStreamobject.</li>
+                     </ul>
+                  </li>
+                  <li>errorCallback (optional)
+                     <ul>
+                        <li>A function that will be called if the media stream cannot be loaded.</li>
+                     </ul>
+                  </li>
+               </ul>
+            </slide-content>
+         </az-pres-slide>
+
+         <az-pres-slide color="#252525" contentColor="white" roll>
+            <slide-title color="white">
+               RTCPeerConnection
+            </slide-title>
+         </az-pres-slide>
+
+         <az-pres-slide color="#7870B3" contentColor="black" swipe>
+            <header color="white">
+               Communicate Media Stream
+            </header>
+            <slide-content>
+               <center>
+                  <img src="./img/peercon.png" alt="Communicate Media Stream" width="900px"/>
+               </center>
+            </slide-content>
+         </az-pres-slide>
+
+         <az-pres-slide  color="#EC312E" contentColor="white" swipe>
+            <header color="white">
+               RTCPeerConnection does a lot
+            </header>
+            <slide-content>
+               <ul type="square">
+                  <li>Signal Processing</li>
+                  <li>Codec handling</li>
+                  <li>Peer to peer communication</li>
+                  <li>Security</li>
+                  <li>Bandwidth Management</li>
+               </ul>
+            </slide-content>
+         </az-pres-slide>
+
+         <az-pres-slide contentColor="black" swipe>
+            <header color="black">
+               WebRTC Architecture
+            </header>
+            <slide-content>
+               <center>
+                  <img src="./img/rtcarchitecture.png" alt="WebRTC Architecture" width="600px"/>
+               </center>
+            </slide-content>
+         </az-pres-slide>
+
+         <az-pres-slide contentColor="black" swipe>
+            <header color="black">
+               RTCPeerConnection Sample
+            </header>
+            <slide-content>
+               <div is="az-coding" class="coding">
+                  <header> javascript </header>
+                  pc = new RTCPeerConnection (null); <br>
+                  pc.onaddstream = gotRemoteStream; <br>
+                  pc.addStream(localStream); <br>
+                  pc.createOffer(gotOffer); <br> <br>
+
+                  function  gotOffer(desc) { <br>
+                  &nbsp;&nbsp;pc.setLocalDescription(desc); <br>
+                  &nbsp;&nbsp;sendOffer(desc); <br>
+                  } <br><br>
+
+                  function gotAnswer(desc) { <br>
+                  &nbsp;&nbsp;pc.setRemoteDescription(desc); <br>
+                  } <br> <br>
+
+                  function gotRemoteStream(e) { <br>
+                  &nbsp;&nbsp;attachMediaStream(remoteVideo, e.stream); <br>
+                  } <br>
+               </div>
+            </slide-content>
+         </az-pres-slide>
+
+         <az-pres-slide color="#252525" contentColor="white" roll>
+            <slide-title color="white">
+               RTCDataChannel
+            </slide-title>
+         </az-pres-slide>
+
+         <az-pres-slide contentColor="black" swipe>
+            <header color="black">
+               RTCDataChannel
+            </header>
+            <slide-content>
+               <ul type="square">
+                  <li>Same API as WebSockets</li>
+                  <li>Ultra-low latency</li>
+                  <li>Unreliable or reliable</li>
+                  <li>Secure</li>
+               </ul>
+            </slide-content>
+         </az-pres-slide>
+
+         <az-pres-slide contentColor="black" swipe>
+            <header color="black">
+               RTCDataChannel Sample
+            </header>
+            <slide-content>
+               <div is="az-coding" class="coding">
+                  <header> javascript </header>
+                  var pc = new webkitRTCPeerConnection(servers, { <br>
+                  	&nbsp;&nbsp;optional: [{ RtpDataChannels : true}] <br>
+                  }); <br> <br>
+
+                  pc.ondatachannel = function(event) { <br>
+                  	&nbsp;&nbsp;receiveChannel = event.channel; <br>
+                  	&nbsp;&nbsp;receiveChannel.onmessage = function(event){ <br>
+                  		&nbsp;&nbsp;&nbsp;&nbsp;document.querySelector( "div#receive" ).innerHTML = event.data; <br>
+                  	&nbsp;&nbsp;}; <br>
+                  }; <br> <br>
+
+                  sendChannel = pc.createDataChannel( "sendDataChannel" , {reliable: false}); <br> <br>
+
+                  document.querySelector( "button#send" ).onclick = function (){ <br>
+                  	&nbsp;&nbsp;var data = document.querySelector( "textarea#send" ).value; <br>
+                  	&nbsp;&nbsp;sendChannel.send(data); <br>
+                  };
+
+               </div>
+            </slide-content>
+         </az-pres-slide>
+
+         <az-pres-slide color="#252525" contentColor="white" roll>
+            <slide-title color="white">
+               Signalling
+            </slide-title>
+         </az-pres-slide>
+
+         <az-pres-slide contentColor="black" swipe>
+            <header color="black">
+               Signalling
+            </header>
+            <slide-content>
+               <ul type="square">
+                  <li>Session control, network and media informatiion.</li>
+                  <li>It’s peer to peer but still need server to make sure the both side can agree to conduct the session</li>
+                  <li>WebRTC doesn’t provide this</li>
+               </ul>
+            </slide-content>
+         </az-pres-slide>
+
+         <az-pres-slide contentColor="black" swipe>
+            <header color="black">
+               Signalling Diagram
+            </header>
+            <slide-content>
+               <center>
+                  <p><img src="./img/signalling.png" alt="Signalling" width="700px"/></p>
+               </center>
+            </slide-content>
+         </az-pres-slide>
+
+      </az-presentation>
+
+      <script type="text/javascript">
+         navigator.getUserMedia = (
+            navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia
+         );
+
+         var localMediaStream = null;
+
+         var errorCallback = function(e) {
+            console.log('Reeeejected!', e);
+         };
+
+         function call(){
+            navigator.getUserMedia( {video: true, audio: true} ,  function(stream) {
+               var video = document.querySelector('video#getusermedia');
+               video.src = window.URL.createObjectURL(stream);
+
+               localMediaStream = stream;
+               video.onloadedmetadata = function(e) {
+                  //do some stuff
                };
+            }, errorCallback);
+         }
 
-               function call(){
-                  navigator.getUserMedia( {video: true, audio: true} ,  function(stream) {
-                     var video = document.querySelector('video');
-                     video.src = window.URL.createObjectURL(stream);
+         document.getElementById("call").onclick = function(){
+            call();
+         }
 
-                     localMediaStream = stream;
-                     video.onloadedmetadata = function(e) {
-                        //do some stuff
-                     };
-                  }, errorCallback);
-               }
-
-               document.getElementById("call").onclick = function(){
-                  call();
-               }
-
-               document.getElementById("stop").onclick = function(){
-                  var video = document.querySelector('video');
-                  video.src = null;
-                  localMediaStream.stop();
-               }
-            </script>
-         </slide-content>
-      </az-slide>
-
-   </az-slides>
-   <!-- </form> -->
+         document.getElementById("stop").onclick = function(){
+            var video = document.querySelector('video');
+            video.src = null;
+            localMediaStream.stop();
+         }
+      </script>
    </body>
 </html>

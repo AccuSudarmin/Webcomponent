@@ -27,7 +27,7 @@
 
     az-input > input.border-hidden {
       border: 0;
-      border-bottom: 1px solid #F8F9FA;
+      border-bottom: 1px solid #BEBEBE;
       font-size: 15px;
       box-sizing: border-box;
       background: none;

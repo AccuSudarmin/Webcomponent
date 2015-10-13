@@ -1,7 +1,6 @@
 
    <head>
       <link rel="stylesheet" href="./css/az-presentation.css">
-      <link rel="stylesheet" href="./css/az-animation.css">
    </head>
    <body>
 <script>
@@ -13,31 +12,54 @@
          hitTimeOut = null;
       var timeOutBefore = null
          , timeOutNow = null;
+      var allTransition = {
+         'fadein': { 'in': 'animation-fadein' } ,
+         'swipe' : 'animation'
+      }
 
-      function triggerAnimation (obj){
-         if (obj.hasAttribute('fadein')) {
-            obj.classList.toggle('animation-fade');
-         } else if (obj.hasAttribute('slide')) {
-            obj.classList.toggle('animation-fade');
+      function addTransition (obj, slideNow, slideBefore) {
+         if (obj.hasAttribute('fade')) {
+
+            obj.classList.add('animation-fade');
+
+         } else if (obj.hasAttribute('swipe')) {
+            if (slideNow > slideBefore) {
+               obj.classList.add('animation-swipe-right');
+            } else {
+               obj.classList.add('animation-swipe-left');
+            }
+         } else if (obj.hasAttribute('roll')) {
+            obj.classList.add('animation-roll-up-in');
          }
+      }
+
+      function removeTransition (obj) {
+         obj.classList.remove('animation-fade');
+         obj.classList.remove('animation-swipe-left');
+         obj.classList.remove('animation-swipe-right');
+         obj.classList.remove('animation-roll-up-in');
       }
 
       var setSlide = function(slideNow, slideBefore){
          var zindexNow = "2"
             , zindexBefore = "1";
 
+         if (slideNow > allSlide.length-1) {
+            slideNow = allSlide.length;
+         }
+
          if (slideBefore) {
             allSlide[slideBefore-1].style.zIndex = zindexBefore;
             setTimeout(function () {
                allSlide[slideBefore-1].style.display = "none";
-               triggerAnimation(allSlide[slideBefore-1]);
+               removeTransition(allSlide[slideBefore-1]);
             }, 1000);
          }
 
          allSlide[slideNow-1].style.zIndex = zindexNow;
-         allSlide[slideNow-1].style.display = "block";
+         allSlide[slideNow-1].style.display = "table";
 
-         triggerAnimation(allSlide[slideNow-1]);
+         addTransition(allSlide[slideNow-1], slideNow, slideBefore);
 
          currentSlide = slideNow;
 
@@ -48,7 +70,45 @@
          currentSlide = parseInt(window.location.hash.substr(1));
       }
 
-      // az-button js
+      // azpresentation
+      var azpresentation = Object.create(HTMLElement.prototype);
+
+      azpresentation.createdCallback = function () {
+         var allElement = this.querySelectorAll('az-pres-slide');
+
+         for (var i = 0; i < allElement.length; i++) {
+            allSlide.push(allElement[i]);
+         }
+
+         // var buttonFullScreen = document.createElement('az-button');
+         // buttonFullScreen.innerHTML = "Full Screen";
+         // buttonFullScreen.setAttribute("name", "full");
+         // buttonFullScreen.setAttribute("width", "100px");
+         // buttonFullScreen.setAttribute("height", "20px");
+
+         // var body = document.querySelector('body');
+         //
+         // buttonFullScreen.addEventListener('click', function(){
+         //    if (body.requestFullscreen) {
+         //      body.requestFullscreen();
+         //   } else if (body.msRequestFullscreen) {
+         //      body.msRequestFullscreen();
+         //   } else if (body.mozRequestFullScreen) {
+         //      body.mozRequestFullScreen();
+         //   } else if (body.webkitRequestFullscreen) {
+         //      body.webkitRequestFullscreen();
+         //    }
+         // });
+         //
+         // document.body.appendChild(buttonFullScreen);
+         //
+         // buttonFullScreen.style.position = 'absolute';
+         // buttonFullScreen.style.top = '0px';
+      }
+
+      document.registerElement('az-presentation', {prototype: azpresentation});
+
+      // az-pres-slide
       var azpresslide = Object.create(HTMLElement.prototype);
 
       azpresslide.createdCallback = function () {
@@ -56,17 +116,14 @@
          var header = this.querySelector("header");
          var mainBackColor = this.getAttribute("color") || "white";
          var contentColor = this.getAttribute("contentColor") || "black";
-         allSlide.push(this);
 
          this.style.backgroundColor = mainBackColor;
          this.style.color = contentColor;
 
-         if (allSlide.length === currentSlide) {
-            setSlide(currentSlide);
-         } else {
-            // this.style.opacity = 0;
-            this.style.display = "none";
-         }
+         // this.style.opacity = 0;
+         this.style.display = "none";
+
+         setSlide(currentSlide);
 
          if (title) {
             var titleColor = title.getAttribute("color") || "black";
@@ -79,6 +136,12 @@
          }
 
       };
+
+      azpresslide.attributeChangedCallback = function (){
+         if (this.hasAttribute("lock")) {
+            console.log("test");
+         }
+      }
 
       document.registerElement('az-pres-slide', {prototype: azpresslide});
       // end of js az-button
@@ -147,7 +210,6 @@
             }
          });
 
-
          this.innerHTML = content;
       }
 
@@ -156,8 +218,7 @@
          extends: "div"
       });
 
-      document.body.addEventListener("keydown" , function(e){
-         // console.log(e.keyCode);
+      document.body.addEventListener("keyup" , function(e){
 
          if (!hit) {
             switch (e.keyCode) {
@@ -175,6 +236,32 @@
                      var slideNow = currentSlide - 1;
 
                      setSlide(slideNow, slideBefore);
+                  }
+                  break;
+               case 13:
+                  if (!document.fullscreenElement &&
+                     !document.mozFullScreenElement &&
+                     !document.webkitFullscreenElement &&
+                     !document.msFullscreenElement ) {  // current working methods
+                     if (document.documentElement.requestFullscreen) {
+                       document.documentElement.requestFullscreen();
+                     } else if (document.documentElement.msRequestFullscreen) {
+                       document.documentElement.msRequestFullscreen();
+                     } else if (document.documentElement.mozRequestFullScreen) {
+                       document.documentElement.mozRequestFullScreen();
+                     } else if (document.documentElement.webkitRequestFullscreen) {
+                       document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                     }
+                  } else {
+                     if (document.exitFullscreen) {
+                       document.exitFullscreen();
+                     } else if (document.msExitFullscreen) {
+                       document.msExitFullscreen();
+                     } else if (document.mozCancelFullScreen) {
+                       document.mozCancelFullScreen();
+                     } else if (document.webkitExitFullscreen) {
+                       document.webkitExitFullscreen();
+                     }
                   }
                   break;
             }
