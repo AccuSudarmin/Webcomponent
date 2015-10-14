@@ -29,11 +29,19 @@
       input.name = this.getAttribute("name");
       input.style.width = mainWidth;
       input.style.height = mainHeight;
+      input.value = main.innerHTML;
+      main.innerHTML = '';
 
       border.style.height = "1px";
       border.style.borderColor = mainColor;
 
       label.innerHTML = this.getAttribute("placeholder");
+
+      if (input.value != '') {
+         label.classList.add("label-trigger");
+         label.style.bottom = mainHeight;
+         label.style.lineHeight = "unset";
+      }
 
       input.addEventListener("focus", function(){
          border.style.width = mainWidth;
