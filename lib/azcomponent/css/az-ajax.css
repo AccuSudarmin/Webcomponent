@@ -25,6 +25,51 @@
    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.45);
 }
 
+.hiccup-back-overlay {
+   position: fixed;
+   display: block;
+   left: 0;
+   z-index: 1001;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   text-align: center;
+   background-color: rgba(0, 0, 0, 0.86);
+}
+
+.hiccup-back-overlay::before {
+   display: inline-block;
+   content: '';
+   height: 100%;
+   vertical-align: middle;
+}
+
+.back-overlay-close-button {
+   right: 0;
+   top: 0;
+   position: absolute;
+   text-align: right;
+   vertical-align: middle;
+   font-size: 200%;
+   color: #fff;
+   padding: 10px;
+   cursor: pointer;
+}
+
+.back-overlay-close-button:hover {
+   color: #bebebe;
+}
+
+.hiccup-back-overlay-child {
+   vertical-align: middle;
+   display: inline-block;
+   max-height: 90%;
+   max-width: 90%;
+   text-align: left;
+   overflow-y: scroll !important;
+   overflow-x: hidden !important;
+}
+
 .suggest-content:hover {
    cursor: pointer;
    color: #bbb;
